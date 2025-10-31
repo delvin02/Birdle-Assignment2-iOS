@@ -21,3 +21,36 @@ This Birdle application implements a complete daily puzzle game experience with:
 - ✅ Responsive layouts for portrait and landscape
 - ✅ Local SQLite database for persistence
 - ✅ API integration with easterbilby.net
+
+## Screenshots
+
+### Splash Screen
+<div align="center">
+  <img src="images/splash-screen.png" alt="Splash Screen" width="300">
+</div>
+
+### Home Screen
+<div align="center">
+  <img src="images/home-screen.png" alt="Home Screen - Portrait" width="300">
+</div>
+
+### Puzzle Game
+<div align="center">
+  <img src="images/puzzle-portrait.png" alt="Puzzle View - Portrait" width="300">
+</div>
+
+### History View
+<div align="center">
+  <img src="images/history-view.png" alt="History View" width="300">
+</div>
+
+### Upload Bird
+<div align="center">
+  <img src="images/upload-view.png" alt="Upload View" width="300">
+</div>
+
+### Help & About
+<div align="center">
+  <img src="images/help-view.png" alt="Help View" width="300">
+  <img src="images/about-view.png" alt="About View" width="300">
+</div>
