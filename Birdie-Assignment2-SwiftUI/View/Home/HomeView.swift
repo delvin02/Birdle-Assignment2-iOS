@@ -9,6 +9,11 @@ import SwiftUI
 
 
 struct HomeView: View {
+    @State private var historyEntries: [History] = []
+    @State private var isLoading: Bool = true
+    
+    private let dbController = DatabaseManager.shared
+    
     var body: some View {
         GeometryReader { geometry in
             let isLandscape = geometry.size.width > geometry.size.height
@@ -27,6 +32,41 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity)
             }
             .background(Color(.systemBackground))
+            .onAppear {
+                loadHistory()
+            }
+        }
+    }
+    
+    // MARK: - Statistics Calculations
+    
+    private var playedCount: Int {
+        historyEntries.count
+    }
+    
+    private var winRate: String {
+        guard !historyEntries.isEmpty else { return "0%" }
+        let successfulCount = historyEntries.filter { $0.success }.count
+        let percentage = Int((Double(successfulCount) / Double(historyEntries.count)) * 100)
+        return "\(percentage)%"
+    }
+    
+    private var avgTries: String {
+        guard !historyEntries.isEmpty else { return "0" }
+        let totalTries = historyEntries.reduce(0) { $0 + $1.attempts }
+        let average = Double(totalTries) / Double(historyEntries.count)
+        return String(format: "%.1f", average)
+    }
+    
+    // MARK: - Data Loading
+    
+    private func loadHistory() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let history = dbController.readAllHistory()
+            DispatchQueue.main.async {
+                self.historyEntries = history
+                self.isLoading = false
+            }
         }
     }
     
@@ -74,9 +114,9 @@ struct HomeView: View {
                     .font(.headline)
                 
                 HStack(spacing: 12) {
-                    statCard(value: "12", label: "Played", color: .blue)
-                    statCard(value: "75%", label: "Win Rate", color: .purple)
-                    statCard(value: "3.2", label: "Avg Tries", color: .orange)
+                    statCard(value: "\(playedCount)", label: "Played", color: .blue)
+                    statCard(value: winRate, label: "Win Rate", color: .purple)
+                    statCard(value: avgTries, label: "Avg Tries", color: .orange)
                 }
             }
             .padding(.horizontal, 20)
@@ -107,9 +147,9 @@ struct HomeView: View {
                         .font(.headline)
                     
                     HStack(spacing: 8) {
-                        statCard(value: "12", label: "Played", color: .blue)
-                        statCard(value: "75%", label: "Win Rate", color: .purple)
-                        statCard(value: "3.2", label: "Avg Tries", color: .orange)
+                        statCard(value: "\(playedCount)", label: "Played", color: .blue)
+                        statCard(value: winRate, label: "Win Rate", color: .purple)
+                        statCard(value: avgTries, label: "Avg Tries", color: .orange)
                     }
                 }
                 
