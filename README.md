@@ -1,4 +1,6 @@
-![App Icon](Birdie-Assignment2-SwiftUI/Assets.xcassets/AppIcon.appiconset/AppIcon.png)
+<div align="center">
+  <img src="Birdie-Assignment2-SwiftUI/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="App Icon" width="320">
+</div>
 
 ## Overview
 
