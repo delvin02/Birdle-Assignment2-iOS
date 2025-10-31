@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BFCC676C2EB444060093FC0A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCC676B2EB444060093FC0A /* libsqlite3.0.tbd */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		BF423FC62EB42F3C001DB75A /* Birdie-Assignment2-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birdie-Assignment2-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFCC676B2EB444060093FC0A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFCC676C2EB444060093FC0A /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +39,7 @@
 			isa = PBXGroup;
 			children = (
 				BF423FC82EB42F3C001DB75A /* Birdie-Assignment2-SwiftUI */,
+				BFCC676A2EB444060093FC0A /* Frameworks */,
 				BF423FC72EB42F3C001DB75A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,14 @@
 				BF423FC62EB42F3C001DB75A /* Birdie-Assignment2-SwiftUI.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BFCC676A2EB444060093FC0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFCC676B2EB444060093FC0A /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

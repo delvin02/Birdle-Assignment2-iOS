@@ -9,15 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            HomeView()
+                .navigationDestination(for: String.self) { route in
+                    switch route {
+                    case "puzzle":
+                        PuzzleView()
+                    case "help":
+                        HelpView()
+                    case "history":
+                        HistoryView()
+                    case "about":
+                        AboutView()
+                    case "upload":
+                        UploadView()
+                    default:
+                        EmptyView()
+                    }
+                }
         }
-        .padding()
     }
 }
+
+
+
 
 #Preview {
     ContentView()
